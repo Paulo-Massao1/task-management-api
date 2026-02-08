@@ -1,89 +1,52 @@
 # Task Management REST API
 
-A RESTful API for task management built with Java and Spring Boot, featuring full CRUD operations, input validation, automated testing, and CI/CD pipeline.
+REST API for managing tasks, built with Spring Boot. Supports full CRUD operations with input validation, error handling, and filter by status.
 
-## Tech Stack
+I built this project to get hands-on experience with Spring Boot and practice setting up a CI/CD pipeline with GitHub Actions.
 
-- **Java 17** + **Spring Boot 3.5**
-- **Spring Data JPA** with **H2 Database** (in-memory)
-- **JUnit 5** + **Mockito** for testing
-- **Swagger/OpenAPI** for API documentation
-- **GitHub Actions** for CI/CD
-- **Maven** for build management
+## How to run
 
-## Getting Started
-
-### Prerequisites
-
-- Java 17 or higher
-- Maven 3.8+
-
-### Run the application
+You need Java 17+ installed.
 ```bash
 ./mvnw spring-boot:run
 ```
 
-The API will be available at `http://localhost:8080`
+API runs at `http://localhost:8080`. You can also open `http://localhost:8080/swagger-ui/index.html` to explore and test the endpoints interactively.
 
-### Run tests
-```bash
-./mvnw test
+## Endpoints
+```
+POST   /api/tasks                 → Create a task
+GET    /api/tasks                 → List all tasks
+GET    /api/tasks/{id}            → Get task by ID
+PUT    /api/tasks/{id}            → Update a task
+DELETE /api/tasks/{id}            → Delete a task
+GET    /api/tasks/status/{status} → Filter by status (TODO, IN_PROGRESS, DONE)
 ```
 
-## API Endpoints
-
-| Method | Endpoint                    | Description         |
-|--------|-----------------------------|---------------------|
-| POST   | `/api/tasks`                | Create a new task   |
-| GET    | `/api/tasks`                | Get all tasks       |
-| GET    | `/api/tasks/{id}`           | Get task by ID      |
-| PUT    | `/api/tasks/{id}`           | Update a task       |
-| DELETE | `/api/tasks/{id}`           | Delete a task       |
-| GET    | `/api/tasks/status/{status}`| Filter by status    |
-
-## Request Body Example
+Example request body:
 ```json
 {
-  "title": "Complete project documentation",
-  "description": "Write README and API docs",
+  "title": "Finish project docs",
+  "description": "Write README and test the endpoints",
   "status": "TODO"
 }
 ```
 
-**Status options:** `TODO`, `IN_PROGRESS`, `DONE`
-
-## API Documentation
-
-Swagger UI is available at: `http://localhost:8080/swagger-ui/index.html`
-
-## Project Structure
-```
-src/main/java/com/paulomassao/task_management_api/
-├── controller/     → REST API endpoints
-├── service/        → Business logic
-├── repository/     → Data access layer
-├── entity/         → JPA entities
-├── enums/          → Status enumerations
-└── exception/      → Custom error handling
-```
-
 ## Testing
 
-The project includes **13 tests** covering:
+13 tests covering the service and controller layers (unit + integration). Run them with:
+```bash
+./mvnw test
+```
 
-- **Unit tests** for the service layer using Mockito
-- **Integration tests** for the controller layer using MockMvc
-- Input validation testing
-- Error handling testing (404 Not Found, 400 Bad Request)
+## Tech used
 
-## CI/CD
-
-GitHub Actions pipeline automatically runs on every push and pull request:
-
-1. Builds the project
-2. Runs all tests
-3. Packages the application
+- Java 17, Spring Boot 3.5
+- Spring Data JPA + H2 (in-memory database)
+- JUnit 5 + Mockito
+- Swagger/OpenAPI
+- GitHub Actions for CI
 
 ## Author
 
-**Paulo Massao** — Software Development student at SAIT (Calgary, AB)
+Paulo Massao — Software Development student at SAIT, Calgary
