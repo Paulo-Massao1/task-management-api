@@ -47,6 +47,12 @@ Example request body:
 - Swagger/OpenAPI
 - GitHub Actions for CI
 
+
+## AI Disclosure
+
+I used Claude (AI assistant) for guidance while building this project — learning Spring Boot concepts, structuring the code, and setting up the CI/CD pipeline. All code was written, tested, and understood by me.
+
+
 ## Author
 
 Paulo Massao — Software Development student at SAIT, Calgary
