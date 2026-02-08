@@ -50,7 +50,7 @@ Example request body:
 
 ## AI Disclosure
 
-I used Claude (AI assistant) for guidance while building this project — learning Spring Boot concepts, structuring the code, and setting up the CI/CD pipeline. All code was written, tested, and understood by me.
+I used Claude (AI assistant) for guidance while building this project — learning Spring Boot concepts, structuring the code, and setting up the CI/CD pipeline. All code was tested and understood by me.
 
 
 ## Author
